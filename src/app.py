@@ -11,6 +11,8 @@ from api.models import db
 from api.routes import api
 from api.admin import setup_admin
 from api.commands import setup_commands
+from flask_jwt_extended import create_access_token, get_jwt_identity, jwt_required, JWTManager
+
 
 #from models import Person
 
@@ -35,6 +37,8 @@ CORS(app)
 
 # add the admin
 setup_admin(app)
+
+jwt = JWTManager(app)
 
 # add the admin
 setup_commands(app)
